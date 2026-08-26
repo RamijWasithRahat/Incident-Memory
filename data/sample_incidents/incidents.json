@@ -1,0 +1,57 @@
+[
+  {
+    "incident_code": "INC-012",
+    "title": "Payment API database timeout",
+    "service": "payment-service",
+    "severity": "SEV-2",
+    "incident_date": "2026-06-15",
+    "symptoms": "Payment requests became slow, API latency exceeded 4 seconds, and PostgreSQL connection timeouts increased after a deployment.",
+    "root_cause": "The PostgreSQL connection pool was exhausted after worker concurrency was increased.",
+    "solution": "Reduced worker concurrency and increased the database connection pool capacity.",
+    "notes": "Add pool-utilization alerting and a deployment configuration check."
+  },
+  {
+    "incident_code": "INC-018",
+    "title": "Checkout Redis memory exhaustion",
+    "service": "checkout-service",
+    "severity": "SEV-2",
+    "incident_date": "2026-05-04",
+    "symptoms": "Checkout requests intermittently failed and Redis reported out-of-memory errors.",
+    "root_cause": "A cache key retention bug caused stale checkout-session keys to accumulate until Redis reached its memory limit.",
+    "solution": "Fixed the expiration logic, removed stale keys, and increased temporary Redis memory headroom.",
+    "notes": "Added cache-key TTL monitoring."
+  },
+  {
+    "incident_code": "INC-021",
+    "title": "Authentication token verification latency",
+    "service": "auth-service",
+    "severity": "SEV-3",
+    "incident_date": "2026-04-18",
+    "symptoms": "Login requests slowed down and token verification latency increased during peak traffic.",
+    "root_cause": "The service repeatedly fetched signing keys because the local key cache was disabled by a configuration change.",
+    "solution": "Restored signing-key caching and corrected the production configuration.",
+    "notes": null
+  },
+  {
+    "incident_code": "INC-027",
+    "title": "PostgreSQL CPU overload during report generation",
+    "service": "reporting-service",
+    "severity": "SEV-2",
+    "incident_date": "2026-07-02",
+    "symptoms": "Database CPU reached 95 percent and report requests timed out during a large scheduled reporting job.",
+    "root_cause": "An unbounded reporting query performed a full scan over a large event table.",
+    "solution": "Added the missing index, limited the report date range, and moved the scheduled job outside peak traffic.",
+    "notes": "Useful as a deliberately similar-but-different database timeout incident for retrieval testing."
+  },
+  {
+    "incident_code": "INC-031",
+    "title": "Notification provider rate-limit failures",
+    "service": "notification-service",
+    "severity": "SEV-3",
+    "incident_date": "2026-07-19",
+    "symptoms": "Email delivery failed in bursts and the external provider returned HTTP 429 responses.",
+    "root_cause": "A retry configuration caused synchronized retries that exceeded the provider rate limit.",
+    "solution": "Added exponential backoff with jitter and reduced retry concurrency.",
+    "notes": "This incident provides a non-database example for later semantic-search evaluation."
+  }
+]

@@ -1,4 +1,4 @@
-services:
+﻿services:
   db:
     image: pgvector/pgvector:pg16
     environment:
@@ -22,9 +22,11 @@ services:
       - "18000:8000"
     volumes:
       - ./backend:/app
+      - ./data:/data
     depends_on:
       db:
         condition: service_healthy
 
 volumes:
   incident_memory_pgdata:
+
