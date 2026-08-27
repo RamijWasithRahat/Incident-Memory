@@ -1,4 +1,4 @@
-﻿services:
+services:
   db:
     image: pgvector/pgvector:pg16
     environment:
@@ -29,4 +29,3 @@
 
 volumes:
   incident_memory_pgdata:
-
