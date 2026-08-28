@@ -9,6 +9,9 @@ from app.api.health import (
 from app.api.incidents import (
     router as incidents_router,
 )
+from app.api.rag import (
+    router as rag_router,
+)
 from app.api.search import (
     router as search_router,
 )
@@ -37,6 +40,10 @@ app.include_router(
     search_router
 )
 
+app.include_router(
+    rag_router
+)
+
 
 @app.get("/")
 def root():
@@ -48,4 +55,5 @@ def root():
         "similar_search": (
             "/api/search/similar"
         ),
+        "rag": "/api/rag/ask",
     }
