@@ -6,52 +6,94 @@ from sqlalchemy import select
 
 from app.db.models import Incident
 from app.db.session import SessionLocal
+from app.services.incident_indexing import (
+    index_incident,
+)
 
 
-DATA_FILE = Path("/data/sample_incidents/incidents.json")
+DATA_FILE = Path(
+    "/data/sample_incidents/incidents.json"
+)
 
 
 def main() -> None:
     records = json.loads(
-        DATA_FILE.read_text(encoding="utf-8")
+        DATA_FILE.read_text(
+            encoding="utf-8"
+        )
     )
 
     inserted = 0
     skipped = 0
+    indexed = 0
 
     with SessionLocal() as db:
-        for item in records:
-            existing = db.scalar(
-                select(Incident).where(
-                    Incident.incident_code == item["incident_code"]
+        try:
+            for item in records:
+                incident = db.scalar(
+                    select(
+                        Incident
+                    ).where(
+                        Incident.incident_code
+                        == item["incident_code"]
+                    )
                 )
-            )
 
-            if existing is not None:
-                skipped += 1
-                continue
+                if incident is None:
+                    incident = Incident(
+                        incident_code=(
+                            item["incident_code"]
+                        ),
+                        title=item["title"],
+                        service=item["service"],
+                        severity=item["severity"],
+                        incident_date=(
+                            date.fromisoformat(
+                                item[
+                                    "incident_date"
+                                ]
+                            )
+                        ),
+                        symptoms=item[
+                            "symptoms"
+                        ],
+                        root_cause=item[
+                            "root_cause"
+                        ],
+                        solution=item[
+                            "solution"
+                        ],
+                        notes=item.get(
+                            "notes"
+                        ),
+                    )
 
-            incident = Incident(
-                incident_code=item["incident_code"],
-                title=item["title"],
-                service=item["service"],
-                severity=item["severity"],
-                incident_date=date.fromisoformat(
-                    item["incident_date"]
-                ),
-                symptoms=item["symptoms"],
-                root_cause=item["root_cause"],
-                solution=item["solution"],
-                notes=item.get("notes"),
-            )
+                    db.add(incident)
+                    db.flush()
 
-            db.add(incident)
-            inserted += 1
+                    inserted += 1
 
-        db.commit()
+                else:
+                    skipped += 1
+
+                index_incident(
+                    db,
+                    incident,
+                )
+
+                indexed += 1
+
+            db.commit()
+
+        except Exception:
+            db.rollback()
+            raise
 
     print(
-        f"Seed complete: inserted={inserted}, skipped={skipped}"
+        "Seed complete: "
+        f"inserted={inserted}, "
+        f"skipped={skipped}, "
+        f"indexed={indexed}"
     )
 
 
