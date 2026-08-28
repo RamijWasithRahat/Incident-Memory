@@ -1,0 +1,357 @@
+{
+  "version": "1.0",
+  "name": "Incident Memory Golden Retrieval Set",
+  "metric": "top_3_retrieval_success",
+  "top_k": 3,
+  "questions": [
+    {
+      "id": "Q01",
+      "question": "What caused INC-012?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-012",
+          "section": "root_cause"
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "question": "How was payment DB pool exhaustion solved?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-012",
+          "section": "solution"
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "question": "Which historical incident had payment API latency and database timeouts?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-012",
+          "section": "symptoms"
+        },
+        {
+          "incident_code": "INC-012",
+          "section": "summary"
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "question": "What previous incident involved PostgreSQL connection pool exhaustion?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-012",
+          "section": "root_cause"
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "question": "Which historical fix reduced worker concurrency and increased database pool capacity?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-012",
+          "section": "solution"
+        }
+      ]
+    },
+
+    {
+      "id": "Q06",
+      "question": "Which incident involved Redis memory exhaustion?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-018",
+          "section": "root_cause"
+        },
+        {
+          "incident_code": "INC-018",
+          "section": "summary"
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "question": "What caused the historical checkout Redis failure?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-018",
+          "section": "root_cause"
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "question": "How was Redis memory exhaustion resolved?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-018",
+          "section": "solution"
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "question": "Find the previous checkout incident involving Redis memory pressure.",
+      "expected_sources": [
+        {
+          "incident_code": "INC-018",
+          "section": "symptoms"
+        },
+        {
+          "incident_code": "INC-018",
+          "section": "summary"
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "question": "Which historical incident was fixed by addressing Redis memory usage?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-018",
+          "section": "solution"
+        }
+      ]
+    },
+
+    {
+      "id": "Q11",
+      "question": "Which incident involved authentication token verification latency?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-021",
+          "section": "summary"
+        },
+        {
+          "incident_code": "INC-021",
+          "section": "symptoms"
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "question": "Find the historical authentication incident about slow token verification.",
+      "expected_sources": [
+        {
+          "incident_code": "INC-021",
+          "section": "summary"
+        },
+        {
+          "incident_code": "INC-021",
+          "section": "symptoms"
+        }
+      ]
+    },
+    {
+      "id": "Q13",
+      "question": "What symptoms occurred in INC-021?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-021",
+          "section": "symptoms"
+        }
+      ]
+    },
+    {
+      "id": "Q14",
+      "question": "What caused INC-021?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-021",
+          "section": "root_cause"
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "question": "How was INC-021 resolved?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-021",
+          "section": "solution"
+        }
+      ]
+    },
+
+    {
+      "id": "Q16",
+      "question": "Which incident involved PostgreSQL CPU overload during report generation?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-027",
+          "section": "summary"
+        },
+        {
+          "incident_code": "INC-027",
+          "section": "symptoms"
+        }
+      ]
+    },
+    {
+      "id": "Q17",
+      "question": "What caused INC-027?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-027",
+          "section": "root_cause"
+        }
+      ]
+    },
+    {
+      "id": "Q18",
+      "question": "How was INC-027 resolved?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-027",
+          "section": "solution"
+        }
+      ]
+    },
+    {
+      "id": "Q19",
+      "question": "Find a historical incident involving report generation and high PostgreSQL CPU.",
+      "expected_sources": [
+        {
+          "incident_code": "INC-027",
+          "section": "summary"
+        },
+        {
+          "incident_code": "INC-027",
+          "section": "symptoms"
+        }
+      ]
+    },
+    {
+      "id": "Q20",
+      "question": "Which previous incident involved database overload from reporting workload?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-027",
+          "section": "root_cause"
+        },
+        {
+          "incident_code": "INC-027",
+          "section": "summary"
+        }
+      ]
+    },
+
+    {
+      "id": "Q21",
+      "question": "Which incident involved notification provider rate limit failures?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-031",
+          "section": "summary"
+        },
+        {
+          "incident_code": "INC-031",
+          "section": "symptoms"
+        }
+      ]
+    },
+    {
+      "id": "Q22",
+      "question": "What caused INC-031?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-031",
+          "section": "root_cause"
+        }
+      ]
+    },
+    {
+      "id": "Q23",
+      "question": "How was INC-031 resolved?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-031",
+          "section": "solution"
+        }
+      ]
+    },
+    {
+      "id": "Q24",
+      "question": "Find a historical failure involving external notification rate limits.",
+      "expected_sources": [
+        {
+          "incident_code": "INC-031",
+          "section": "summary"
+        },
+        {
+          "incident_code": "INC-031",
+          "section": "root_cause"
+        }
+      ]
+    },
+    {
+      "id": "Q25",
+      "question": "Which incident had notification delivery failures because a provider throttled requests?",
+      "expected_sources": [
+        {
+          "incident_code": "INC-031",
+          "section": "root_cause"
+        },
+        {
+          "incident_code": "INC-031",
+          "section": "symptoms"
+        }
+      ]
+    },
+
+    {
+      "id": "Q26",
+      "question": "What runbook contains database timeout checks?",
+      "expected_sources": [
+        {
+          "document_title_contains": "Database Timeout Runbook",
+          "section": "checks"
+        }
+      ]
+    },
+    {
+      "id": "Q27",
+      "question": "What should I check when investigating database timeout problems?",
+      "expected_sources": [
+        {
+          "document_title_contains": "Database Timeout Runbook",
+          "section": "checks"
+        }
+      ]
+    },
+    {
+      "id": "Q28",
+      "question": "Which runbook explains root causes of database timeout issues?",
+      "expected_sources": [
+        {
+          "document_title_contains": "Database Timeout Runbook",
+          "section": "root_cause"
+        }
+      ]
+    },
+    {
+      "id": "Q29",
+      "question": "What verification steps are listed after resolving database timeouts?",
+      "expected_sources": [
+        {
+          "document_title_contains": "Database Timeout Runbook",
+          "section": "verification"
+        }
+      ]
+    },
+    {
+      "id": "Q30",
+      "question": "How can database timeout incidents be prevented?",
+      "expected_sources": [
+        {
+          "document_title_contains": "Database Timeout Runbook",
+          "section": "prevention"
+        }
+      ]
+    }
+  ]
+}
