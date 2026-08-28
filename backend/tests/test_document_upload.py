@@ -1,7 +1,10 @@
 from io import BytesIO
 
 from fastapi.testclient import TestClient
-from sqlalchemy import delete
+from sqlalchemy import (
+    delete,
+    select,
+)
 
 from app.db.models import (
     Document,
@@ -51,23 +54,67 @@ Increase connection pool capacity.
 
     assert body["chunk_count"] >= 3
 
-    assert "symptoms" in body["sections"]
-    assert "root_cause" in body["sections"]
-    assert "resolution" in body["sections"]
+    assert (
+        "symptoms"
+        in body["sections"]
+    )
+
+    assert (
+        "root_cause"
+        in body["sections"]
+    )
+
+    assert (
+        "resolution"
+        in body["sections"]
+    )
 
     document_id = body["id"]
 
     with SessionLocal() as db:
+        chunks = list(
+            db.scalars(
+                select(
+                    DocumentChunk
+                )
+                .where(
+                    DocumentChunk.document_id
+                    == document_id
+                )
+                .order_by(
+                    DocumentChunk.chunk_index
+                )
+            ).all()
+        )
+
+        assert len(chunks) >= 3
+
+        for chunk in chunks:
+            assert (
+                chunk.embedding
+                is not None
+            )
+
+            assert (
+                len(chunk.embedding)
+                == 384
+            )
+
         db.execute(
-            delete(DocumentChunk).where(
+            delete(
+                DocumentChunk
+            ).where(
                 DocumentChunk.document_id
                 == document_id
             )
         )
 
         db.execute(
-            delete(Document).where(
-                Document.id == document_id
+            delete(
+                Document
+            ).where(
+                Document.id
+                == document_id
             )
         )
 
@@ -80,10 +127,15 @@ def test_unsupported_file_is_rejected() -> None:
         files={
             "file": (
                 "invalid.pdf",
-                BytesIO(b"fake pdf"),
+                BytesIO(
+                    b"fake pdf"
+                ),
                 "application/pdf",
             )
         },
     )
 
-    assert response.status_code == 415
+    assert (
+        response.status_code
+        == 415
+    )

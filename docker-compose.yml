@@ -1,12 +1,15 @@
 services:
   db:
     image: pgvector/pgvector:pg16
+
     environment:
       POSTGRES_DB: incident_memory
       POSTGRES_USER: incident_memory
       POSTGRES_PASSWORD: incident_memory
+
     volumes:
       - incident_memory_pgdata:/var/lib/postgresql/data
+
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U incident_memory -d incident_memory"]
       interval: 5s
@@ -16,16 +19,22 @@ services:
   backend:
     build:
       context: ./backend
+
     env_file:
       - .env
+
     ports:
       - "18000:8000"
+
     volumes:
       - ./backend:/app
       - ./data:/data
+      - embedding_model_cache:/root/.cache/huggingface
+
     depends_on:
       db:
         condition: service_healthy
 
 volumes:
   incident_memory_pgdata:
+  embedding_model_cache:

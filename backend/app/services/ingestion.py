@@ -7,12 +7,12 @@ from app.db.models import (
     DocumentChunk,
     Incident,
 )
-
 from app.services.document_parser import (
     TextChunk,
     chunk_sections,
     parse_sections,
 )
+from app.services.embeddings import embed_texts
 
 
 MAX_UPLOAD_BYTES = 2 * 1024 * 1024
@@ -55,7 +55,6 @@ def decode_document(
     filename: str,
     raw_data: bytes,
 ) -> str:
-
     suffix = Path(
         filename
     ).suffix.lower()
@@ -103,7 +102,6 @@ def ingest_document(
     incident_id: int | None = None,
     service: str | None = None,
 ) -> tuple[Document, list[TextChunk]]:
-
     related_incident = None
 
     if incident_id is not None:
@@ -149,6 +147,21 @@ def ingest_document(
             "No searchable chunks could be created."
         )
 
+    # M4:
+    # Generate an embedding for every document chunk.
+    chunk_embeddings = embed_texts(
+        [
+            chunk.text
+            for chunk in chunks
+        ]
+    )
+
+    if len(chunk_embeddings) != len(chunks):
+        raise RuntimeError(
+            "Embedding count does not match "
+            "document chunk count."
+        )
+
     document = Document(
         incident_id=incident_id,
         title=title,
@@ -162,7 +175,10 @@ def ingest_document(
     try:
         db.flush()
 
-        for chunk in chunks:
+        for chunk, embedding in zip(
+            chunks,
+            chunk_embeddings,
+        ):
             db.add(
                 DocumentChunk(
                     document_id=document.id,
@@ -172,6 +188,7 @@ def ingest_document(
                     service=effective_service,
                     severity=severity,
                     incident_date=incident_date,
+                    embedding=embedding,
                 )
             )
 

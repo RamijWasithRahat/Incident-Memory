@@ -7,7 +7,15 @@ class Settings(BaseSettings):
     app_name: str = "Incident Memory API"
     app_env: str = "development"
     debug: bool = True
-    database_url: str = "postgresql+psycopg://incident_memory:incident_memory@db:5432/incident_memory"
+
+    database_url: str = (
+        "postgresql+psycopg://incident_memory:"
+        "incident_memory@db:5432/incident_memory"
+    )
+
+    # M4 - Embedding configuration
+    embedding_model: str = "BAAI/bge-small-en-v1.5"
+    embedding_dimension: int = 384
 
     model_config = SettingsConfigDict(
         env_file=".env",
