@@ -3,10 +3,18 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.db.models import Incident
-from app.schemas.incidents import IncidentCreate, IncidentUpdate
+from app.schemas.incidents import (
+    IncidentCreate,
+    IncidentUpdate,
+)
+from app.services.incident_indexing import (
+    index_incident,
+)
 
 
-class IncidentCodeAlreadyExistsError(Exception):
+class IncidentCodeAlreadyExistsError(
+    Exception
+):
     pass
 
 
@@ -14,17 +22,38 @@ def create_incident(
     db: Session,
     payload: IncidentCreate,
 ) -> Incident:
-    incident = Incident(**payload.model_dump())
+    incident = Incident(
+        **payload.model_dump()
+    )
 
     db.add(incident)
 
     try:
+        # Obtain the incident ID without committing.
+        db.flush()
+
+        # M5:
+        # Immediately create searchable incident
+        # sections and embeddings.
+        index_incident(
+            db,
+            incident,
+        )
+
+        # Incident + vector index are committed
+        # together.
         db.commit()
+
     except IntegrityError as exc:
         db.rollback()
+
         raise IncidentCodeAlreadyExistsError(
             payload.incident_code
         ) from exc
+
+    except Exception:
+        db.rollback()
+        raise
 
     db.refresh(incident)
 
@@ -39,8 +68,9 @@ def list_incidents(
     skip: int = 0,
     limit: int = 100,
 ) -> list[Incident]:
-
-    statement = select(Incident).order_by(
+    statement = select(
+        Incident
+    ).order_by(
         Incident.incident_date.desc(),
         Incident.id.desc(),
     )
@@ -55,17 +85,27 @@ def list_incidents(
             Incident.severity == severity
         )
 
-    statement = statement.offset(skip).limit(limit)
+    statement = (
+        statement
+        .offset(skip)
+        .limit(limit)
+    )
 
-    return list(db.scalars(statement).all())
+    return list(
+        db.scalars(
+            statement
+        ).all()
+    )
 
 
 def get_incident(
     db: Session,
     incident_id: int,
 ) -> Incident | None:
-
-    return db.get(Incident, incident_id)
+    return db.get(
+        Incident,
+        incident_id,
+    )
 
 
 def update_incident(
@@ -73,16 +113,32 @@ def update_incident(
     incident: Incident,
     payload: IncidentUpdate,
 ) -> Incident:
-
     changes = payload.model_dump(
         exclude_unset=True
     )
 
     for field, value in changes.items():
-        setattr(incident, field, value)
+        setattr(
+            incident,
+            field,
+            value,
+        )
 
     try:
+        # Validate pending DB changes before rebuilding
+        # the searchable incident representation.
+        db.flush()
+
+        # Rebuild the index because symptoms,
+        # root cause, solution, service, etc.
+        # may have changed.
+        index_incident(
+            db,
+            incident,
+        )
+
         db.commit()
+
     except IntegrityError as exc:
         db.rollback()
 
@@ -93,6 +149,10 @@ def update_incident(
             )
         ) from exc
 
+    except Exception:
+        db.rollback()
+        raise
+
     db.refresh(incident)
 
     return incident
@@ -102,6 +162,5 @@ def delete_incident(
     db: Session,
     incident: Incident,
 ) -> None:
-
     db.delete(incident)
     db.commit()
