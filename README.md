@@ -125,7 +125,7 @@ The generated answer includes source labels such as:
 
 The API also returns structured source metadata for verification.
 
-![Grounded RAG Answer](docs/screenshots/rag-answer.png)
+![Grounded RAG Answer](docs/screenshots/rag-assistant.png)
 
 ---
 
@@ -678,7 +678,7 @@ Warning: the `-v` command deletes the local project database and cached data.
 
 ### Grounded RAG Answer
 
-![RAG Answer](docs/screenshots/rag-answer.png)
+![RAG Answer](docs/screenshots/rag-assistant.png)
 
 ---
 
