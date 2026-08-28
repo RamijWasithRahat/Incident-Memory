@@ -35,6 +35,24 @@ services:
       db:
         condition: service_healthy
 
+  frontend:
+    build:
+      context: ./frontend
+
+    environment:
+      VITE_API_BASE_URL: http://localhost:18000
+
+    ports:
+      - "5173:5173"
+
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+
+    depends_on:
+      - backend
+
 volumes:
   incident_memory_pgdata:
   embedding_model_cache:
+  frontend_node_modules:
