@@ -1,6 +1,15 @@
 from datetime import date, datetime
 
-from sqlalchemy import Date, DateTime, ForeignKey, Index, String, Text, func
+from pgvector.sqlalchemy import Vector
+from sqlalchemy import (
+    Date,
+    DateTime,
+    ForeignKey,
+    Index,
+    String,
+    Text,
+    func,
+)
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
@@ -84,6 +93,7 @@ class Incident(Base):
         onupdate=func.now(),
         nullable=False,
     )
+
 
 class Document(Base):
     __tablename__ = "documents"
@@ -186,6 +196,11 @@ class DocumentChunk(Base):
         Date,
         nullable=True,
         index=True,
+    )
+
+    embedding: Mapped[list[float] | None] = mapped_column(
+        Vector(384),
+        nullable=True,
     )
 
     created_at: Mapped[datetime] = mapped_column(
