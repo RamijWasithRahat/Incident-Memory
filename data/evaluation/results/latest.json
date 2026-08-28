@@ -1,0 +1,1073 @@
+{
+  "metric": "top_3_retrieval_success",
+  "top_k": 3,
+  "total_questions": 30,
+  "passed_questions": 19,
+  "failed_questions": 11,
+  "score_percent": 63.33,
+  "average_retrieval_ms": 219.19,
+  "generated_at": "2026-08-28T17:44:31.619737Z",
+  "results": [
+    {
+      "question_id": "Q01",
+      "question": "What caused INC-012?",
+      "passed": true,
+      "expected_sources": [
+        "INC-012 / root_cause"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 116,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "notes",
+          "similarity": 0.7063
+        },
+        {
+          "rank": 2,
+          "chunk_id": 114,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "root_cause",
+          "similarity": 0.6959
+        },
+        {
+          "rank": 3,
+          "chunk_id": 115,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "solution",
+          "similarity": 0.6933
+        }
+      ],
+      "duration_ms": 5905.55
+    },
+    {
+      "question_id": "Q02",
+      "question": "How was payment DB pool exhaustion solved?",
+      "passed": true,
+      "expected_sources": [
+        "INC-012 / solution"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 114,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "root_cause",
+          "similarity": 0.7347
+        },
+        {
+          "rank": 2,
+          "chunk_id": 115,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "solution",
+          "similarity": 0.7214
+        },
+        {
+          "rank": 3,
+          "chunk_id": 17,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "root_cause",
+          "similarity": 0.7104
+        }
+      ],
+      "duration_ms": 21.49
+    },
+    {
+      "question_id": "Q03",
+      "question": "Which historical incident had payment API latency and database timeouts?",
+      "passed": true,
+      "expected_sources": [
+        "INC-012 / symptoms",
+        "INC-012 / summary"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 113,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "symptoms",
+          "similarity": 0.8107
+        },
+        {
+          "rank": 2,
+          "chunk_id": 115,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "solution",
+          "similarity": 0.8056
+        },
+        {
+          "rank": 3,
+          "chunk_id": 112,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "summary",
+          "similarity": 0.788
+        }
+      ],
+      "duration_ms": 20.37
+    },
+    {
+      "question_id": "Q04",
+      "question": "What previous incident involved PostgreSQL connection pool exhaustion?",
+      "passed": true,
+      "expected_sources": [
+        "INC-012 / root_cause"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 143,
+          "incident_code": "INC-M5-TEST",
+          "document_title": "INC-M5-TEST - Orders API connection exhaustion",
+          "section": "root_cause",
+          "similarity": 0.8503
+        },
+        {
+          "rank": 2,
+          "chunk_id": 114,
+          "incident_code": "INC-012",
+          "document_title": "INC-012 - Payment API database timeout",
+          "section": "root_cause",
+          "similarity": 0.8131
+        },
+        {
+          "rank": 3,
+          "chunk_id": 2,
+          "incident_code": null,
+          "document_title": "Database Timeout Troubleshooting Runbook",
+          "section": "symptoms",
+          "similarity": 0.8016
+        }
+      ],
+      "duration_ms": 26.22
+    },
+    {
+      "question_id": "Q05",
+      "question": "Which historical fix reduced worker concurrency and increased database pool capacity?",
+      "passed": false,
+      "expected_sources": [
+        "INC-012 / solution"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 4,
+          "incident_code": null,
+          "document_title": "Database Timeout Troubleshooting Runbook",
+          "section": "root_cause",
+          "similarity": 0.7404
+        },
+        {
+          "rank": 2,
+          "chunk_id": 17,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "root_cause",
+          "similarity": 0.7404
+        },
+        {
+          "rank": 3,
+          "chunk_id": 154,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "root_cause",
+          "similarity": 0.7404
+        }
+      ],
+      "duration_ms": 21.61
+    },
+    {
+      "question_id": "Q06",
+      "question": "Which incident involved Redis memory exhaustion?",
+      "passed": false,
+      "expected_sources": [
+        "INC-018 / root_cause",
+        "INC-018 / summary"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 118,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "symptoms",
+          "similarity": 0.7817
+        },
+        {
+          "rank": 2,
+          "chunk_id": 120,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "solution",
+          "similarity": 0.7759
+        },
+        {
+          "rank": 3,
+          "chunk_id": 121,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "notes",
+          "similarity": 0.7676
+        }
+      ],
+      "duration_ms": 25.73
+    },
+    {
+      "question_id": "Q07",
+      "question": "What caused the historical checkout Redis failure?",
+      "passed": true,
+      "expected_sources": [
+        "INC-018 / root_cause"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 118,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "symptoms",
+          "similarity": 0.7874
+        },
+        {
+          "rank": 2,
+          "chunk_id": 119,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "root_cause",
+          "similarity": 0.7622
+        },
+        {
+          "rank": 3,
+          "chunk_id": 120,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "solution",
+          "similarity": 0.7552
+        }
+      ],
+      "duration_ms": 23.45
+    },
+    {
+      "question_id": "Q08",
+      "question": "How was Redis memory exhaustion resolved?",
+      "passed": true,
+      "expected_sources": [
+        "INC-018 / solution"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 120,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "solution",
+          "similarity": 0.8077
+        },
+        {
+          "rank": 2,
+          "chunk_id": 119,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "root_cause",
+          "similarity": 0.7763
+        },
+        {
+          "rank": 3,
+          "chunk_id": 118,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "symptoms",
+          "similarity": 0.7656
+        }
+      ],
+      "duration_ms": 20.39
+    },
+    {
+      "question_id": "Q09",
+      "question": "Find the previous checkout incident involving Redis memory pressure.",
+      "passed": true,
+      "expected_sources": [
+        "INC-018 / symptoms",
+        "INC-018 / summary"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 118,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "symptoms",
+          "similarity": 0.7777
+        },
+        {
+          "rank": 2,
+          "chunk_id": 119,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "root_cause",
+          "similarity": 0.7752
+        },
+        {
+          "rank": 3,
+          "chunk_id": 120,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "solution",
+          "similarity": 0.7717
+        }
+      ],
+      "duration_ms": 18.77
+    },
+    {
+      "question_id": "Q10",
+      "question": "Which historical incident was fixed by addressing Redis memory usage?",
+      "passed": true,
+      "expected_sources": [
+        "INC-018 / solution"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 120,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "solution",
+          "similarity": 0.7412
+        },
+        {
+          "rank": 2,
+          "chunk_id": 119,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "root_cause",
+          "similarity": 0.7264
+        },
+        {
+          "rank": 3,
+          "chunk_id": 121,
+          "incident_code": "INC-018",
+          "document_title": "INC-018 - Checkout Redis memory exhaustion",
+          "section": "notes",
+          "similarity": 0.7217
+        }
+      ],
+      "duration_ms": 23.87
+    },
+    {
+      "question_id": "Q11",
+      "question": "Which incident involved authentication token verification latency?",
+      "passed": true,
+      "expected_sources": [
+        "INC-021 / summary",
+        "INC-021 / symptoms"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 123,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "symptoms",
+          "similarity": 0.8421
+        },
+        {
+          "rank": 2,
+          "chunk_id": 125,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "solution",
+          "similarity": 0.8027
+        },
+        {
+          "rank": 3,
+          "chunk_id": 122,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "summary",
+          "similarity": 0.7935
+        }
+      ],
+      "duration_ms": 19.34
+    },
+    {
+      "question_id": "Q12",
+      "question": "Find the historical authentication incident about slow token verification.",
+      "passed": true,
+      "expected_sources": [
+        "INC-021 / summary",
+        "INC-021 / symptoms"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 123,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "symptoms",
+          "similarity": 0.787
+        },
+        {
+          "rank": 2,
+          "chunk_id": 125,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "solution",
+          "similarity": 0.7379
+        },
+        {
+          "rank": 3,
+          "chunk_id": 124,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "root_cause",
+          "similarity": 0.7249
+        }
+      ],
+      "duration_ms": 22.31
+    },
+    {
+      "question_id": "Q13",
+      "question": "What symptoms occurred in INC-021?",
+      "passed": true,
+      "expected_sources": [
+        "INC-021 / symptoms"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 123,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "symptoms",
+          "similarity": 0.6991
+        },
+        {
+          "rank": 2,
+          "chunk_id": 142,
+          "incident_code": "INC-M5-TEST",
+          "document_title": "INC-M5-TEST - Orders API connection exhaustion",
+          "section": "symptoms",
+          "similarity": 0.6649
+        },
+        {
+          "rank": 3,
+          "chunk_id": 125,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "solution",
+          "similarity": 0.6646
+        }
+      ],
+      "duration_ms": 20.55
+    },
+    {
+      "question_id": "Q14",
+      "question": "What caused INC-021?",
+      "passed": false,
+      "expected_sources": [
+        "INC-021 / root_cause"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 125,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "solution",
+          "similarity": 0.6657
+        },
+        {
+          "rank": 2,
+          "chunk_id": 130,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "notes",
+          "similarity": 0.6657
+        },
+        {
+          "rank": 3,
+          "chunk_id": 128,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "root_cause",
+          "similarity": 0.6612
+        }
+      ],
+      "duration_ms": 22.95
+    },
+    {
+      "question_id": "Q15",
+      "question": "How was INC-021 resolved?",
+      "passed": true,
+      "expected_sources": [
+        "INC-021 / solution"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 125,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "solution",
+          "similarity": 0.6804
+        },
+        {
+          "rank": 2,
+          "chunk_id": 122,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "summary",
+          "similarity": 0.6666
+        },
+        {
+          "rank": 3,
+          "chunk_id": 123,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "symptoms",
+          "similarity": 0.6418
+        }
+      ],
+      "duration_ms": 22.28
+    },
+    {
+      "question_id": "Q16",
+      "question": "Which incident involved PostgreSQL CPU overload during report generation?",
+      "passed": false,
+      "expected_sources": [
+        "INC-027 / summary",
+        "INC-027 / symptoms"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 128,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "root_cause",
+          "similarity": 0.8879
+        },
+        {
+          "rank": 2,
+          "chunk_id": 130,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "notes",
+          "similarity": 0.8824
+        },
+        {
+          "rank": 3,
+          "chunk_id": 129,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "solution",
+          "similarity": 0.876
+        }
+      ],
+      "duration_ms": 24.34
+    },
+    {
+      "question_id": "Q17",
+      "question": "What caused INC-027?",
+      "passed": true,
+      "expected_sources": [
+        "INC-027 / root_cause"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 130,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "notes",
+          "similarity": 0.6977
+        },
+        {
+          "rank": 2,
+          "chunk_id": 126,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "summary",
+          "similarity": 0.6907
+        },
+        {
+          "rank": 3,
+          "chunk_id": 128,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "root_cause",
+          "similarity": 0.6855
+        }
+      ],
+      "duration_ms": 24.9
+    },
+    {
+      "question_id": "Q18",
+      "question": "How was INC-027 resolved?",
+      "passed": false,
+      "expected_sources": [
+        "INC-027 / solution"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 125,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "solution",
+          "similarity": 0.6619
+        },
+        {
+          "rank": 2,
+          "chunk_id": 122,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "summary",
+          "similarity": 0.6524
+        },
+        {
+          "rank": 3,
+          "chunk_id": 130,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "notes",
+          "similarity": 0.6488
+        }
+      ],
+      "duration_ms": 23.26
+    },
+    {
+      "question_id": "Q19",
+      "question": "Find a historical incident involving report generation and high PostgreSQL CPU.",
+      "passed": false,
+      "expected_sources": [
+        "INC-027 / summary",
+        "INC-027 / symptoms"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 128,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "root_cause",
+          "similarity": 0.7943
+        },
+        {
+          "rank": 2,
+          "chunk_id": 130,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "notes",
+          "similarity": 0.7942
+        },
+        {
+          "rank": 3,
+          "chunk_id": 129,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "solution",
+          "similarity": 0.7795
+        }
+      ],
+      "duration_ms": 24.26
+    },
+    {
+      "question_id": "Q20",
+      "question": "Which previous incident involved database overload from reporting workload?",
+      "passed": true,
+      "expected_sources": [
+        "INC-027 / root_cause",
+        "INC-027 / summary"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 130,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "notes",
+          "similarity": 0.7929
+        },
+        {
+          "rank": 2,
+          "chunk_id": 128,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "root_cause",
+          "similarity": 0.7812
+        },
+        {
+          "rank": 3,
+          "chunk_id": 129,
+          "incident_code": "INC-027",
+          "document_title": "INC-027 - PostgreSQL CPU overload during report generation",
+          "section": "solution",
+          "similarity": 0.7751
+        }
+      ],
+      "duration_ms": 20.1
+    },
+    {
+      "question_id": "Q21",
+      "question": "Which incident involved notification provider rate limit failures?",
+      "passed": false,
+      "expected_sources": [
+        "INC-031 / summary",
+        "INC-031 / symptoms"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 133,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "root_cause",
+          "similarity": 0.8425
+        },
+        {
+          "rank": 2,
+          "chunk_id": 134,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "solution",
+          "similarity": 0.8079
+        },
+        {
+          "rank": 3,
+          "chunk_id": 135,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "notes",
+          "similarity": 0.807
+        }
+      ],
+      "duration_ms": 23.65
+    },
+    {
+      "question_id": "Q22",
+      "question": "What caused INC-031?",
+      "passed": true,
+      "expected_sources": [
+        "INC-031 / root_cause"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 134,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "solution",
+          "similarity": 0.7155
+        },
+        {
+          "rank": 2,
+          "chunk_id": 131,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "summary",
+          "similarity": 0.7144
+        },
+        {
+          "rank": 3,
+          "chunk_id": 133,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "root_cause",
+          "similarity": 0.6824
+        }
+      ],
+      "duration_ms": 24.65
+    },
+    {
+      "question_id": "Q23",
+      "question": "How was INC-031 resolved?",
+      "passed": true,
+      "expected_sources": [
+        "INC-031 / solution"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 134,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "solution",
+          "similarity": 0.6953
+        },
+        {
+          "rank": 2,
+          "chunk_id": 131,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "summary",
+          "similarity": 0.6911
+        },
+        {
+          "rank": 3,
+          "chunk_id": 125,
+          "incident_code": "INC-021",
+          "document_title": "INC-021 - Authentication token verification latency",
+          "section": "solution",
+          "similarity": 0.6856
+        }
+      ],
+      "duration_ms": 26.85
+    },
+    {
+      "question_id": "Q24",
+      "question": "Find a historical failure involving external notification rate limits.",
+      "passed": true,
+      "expected_sources": [
+        "INC-031 / summary",
+        "INC-031 / root_cause"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 132,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "symptoms",
+          "similarity": 0.7636
+        },
+        {
+          "rank": 2,
+          "chunk_id": 135,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "notes",
+          "similarity": 0.7595
+        },
+        {
+          "rank": 3,
+          "chunk_id": 133,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "root_cause",
+          "similarity": 0.7481
+        }
+      ],
+      "duration_ms": 23.58
+    },
+    {
+      "question_id": "Q25",
+      "question": "Which incident had notification delivery failures because a provider throttled requests?",
+      "passed": true,
+      "expected_sources": [
+        "INC-031 / root_cause",
+        "INC-031 / symptoms"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 132,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "symptoms",
+          "similarity": 0.7605
+        },
+        {
+          "rank": 2,
+          "chunk_id": 133,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "root_cause",
+          "similarity": 0.7486
+        },
+        {
+          "rank": 3,
+          "chunk_id": 134,
+          "incident_code": "INC-031",
+          "document_title": "INC-031 - Notification provider rate-limit failures",
+          "section": "solution",
+          "similarity": 0.7438
+        }
+      ],
+      "duration_ms": 24.69
+    },
+    {
+      "question_id": "Q26",
+      "question": "What runbook contains database timeout checks?",
+      "passed": false,
+      "expected_sources": [
+        "Database Timeout Runbook / checks"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 1,
+          "incident_code": null,
+          "document_title": "Database Timeout Troubleshooting Runbook",
+          "section": "summary",
+          "similarity": 0.8221
+        },
+        {
+          "rank": 2,
+          "chunk_id": 14,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "summary",
+          "similarity": 0.8221
+        },
+        {
+          "rank": 3,
+          "chunk_id": 151,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "summary",
+          "similarity": 0.8221
+        }
+      ],
+      "duration_ms": 23.71
+    },
+    {
+      "question_id": "Q27",
+      "question": "What should I check when investigating database timeout problems?",
+      "passed": false,
+      "expected_sources": [
+        "Database Timeout Runbook / checks"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 1,
+          "incident_code": null,
+          "document_title": "Database Timeout Troubleshooting Runbook",
+          "section": "summary",
+          "similarity": 0.7901
+        },
+        {
+          "rank": 2,
+          "chunk_id": 14,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "summary",
+          "similarity": 0.7901
+        },
+        {
+          "rank": 3,
+          "chunk_id": 151,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "summary",
+          "similarity": 0.7901
+        }
+      ],
+      "duration_ms": 25.74
+    },
+    {
+      "question_id": "Q28",
+      "question": "Which runbook explains root causes of database timeout issues?",
+      "passed": false,
+      "expected_sources": [
+        "Database Timeout Runbook / root_cause"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 1,
+          "incident_code": null,
+          "document_title": "Database Timeout Troubleshooting Runbook",
+          "section": "summary",
+          "similarity": 0.8239
+        },
+        {
+          "rank": 2,
+          "chunk_id": 14,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "summary",
+          "similarity": 0.8239
+        },
+        {
+          "rank": 3,
+          "chunk_id": 151,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "summary",
+          "similarity": 0.8239
+        }
+      ],
+      "duration_ms": 24.97
+    },
+    {
+      "question_id": "Q29",
+      "question": "What verification steps are listed after resolving database timeouts?",
+      "passed": true,
+      "expected_sources": [
+        "Database Timeout Runbook / verification"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 6,
+          "incident_code": null,
+          "document_title": "Database Timeout Troubleshooting Runbook",
+          "section": "verification",
+          "similarity": 0.7045
+        },
+        {
+          "rank": 2,
+          "chunk_id": 19,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "verification",
+          "similarity": 0.7045
+        },
+        {
+          "rank": 3,
+          "chunk_id": 156,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "verification",
+          "similarity": 0.7045
+        }
+      ],
+      "duration_ms": 22.96
+    },
+    {
+      "question_id": "Q30",
+      "question": "How can database timeout incidents be prevented?",
+      "passed": false,
+      "expected_sources": [
+        "Database Timeout Runbook / prevention"
+      ],
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "chunk_id": 1,
+          "incident_code": null,
+          "document_title": "Database Timeout Troubleshooting Runbook",
+          "section": "summary",
+          "similarity": 0.7558
+        },
+        {
+          "rank": 2,
+          "chunk_id": 14,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "summary",
+          "similarity": 0.7558
+        },
+        {
+          "rank": 3,
+          "chunk_id": 151,
+          "incident_code": null,
+          "document_title": "Database Timeout Runbook",
+          "section": "summary",
+          "similarity": 0.7558
+        }
+      ],
+      "duration_ms": 23.18
+    }
+  ]
+}

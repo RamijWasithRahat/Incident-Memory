@@ -1,0 +1,31 @@
+question_id,question,passed,expected_sources,top_1,top_2,top_3,duration_ms
+Q01,What caused INC-012?,True,INC-012 / root_cause,#1 INC-012 / notes (0.7063),#2 INC-012 / root_cause (0.6959),#3 INC-012 / solution (0.6933),5905.55
+Q02,How was payment DB pool exhaustion solved?,True,INC-012 / solution,#1 INC-012 / root_cause (0.7347),#2 INC-012 / solution (0.7214),#3 Database Timeout Runbook / root_cause (0.7104),21.49
+Q03,Which historical incident had payment API latency and database timeouts?,True,INC-012 / symptoms | INC-012 / summary,#1 INC-012 / symptoms (0.8107),#2 INC-012 / solution (0.8056),#3 INC-012 / summary (0.7880),20.37
+Q04,What previous incident involved PostgreSQL connection pool exhaustion?,True,INC-012 / root_cause,#1 INC-M5-TEST / root_cause (0.8503),#2 INC-012 / root_cause (0.8131),#3 Database Timeout Troubleshooting Runbook / symptoms (0.8016),26.22
+Q05,Which historical fix reduced worker concurrency and increased database pool capacity?,False,INC-012 / solution,#1 Database Timeout Troubleshooting Runbook / root_cause (0.7404),#2 Database Timeout Runbook / root_cause (0.7404),#3 Database Timeout Runbook / root_cause (0.7404),21.61
+Q06,Which incident involved Redis memory exhaustion?,False,INC-018 / root_cause | INC-018 / summary,#1 INC-018 / symptoms (0.7817),#2 INC-018 / solution (0.7759),#3 INC-018 / notes (0.7676),25.73
+Q07,What caused the historical checkout Redis failure?,True,INC-018 / root_cause,#1 INC-018 / symptoms (0.7874),#2 INC-018 / root_cause (0.7622),#3 INC-018 / solution (0.7552),23.45
+Q08,How was Redis memory exhaustion resolved?,True,INC-018 / solution,#1 INC-018 / solution (0.8077),#2 INC-018 / root_cause (0.7763),#3 INC-018 / symptoms (0.7656),20.39
+Q09,Find the previous checkout incident involving Redis memory pressure.,True,INC-018 / symptoms | INC-018 / summary,#1 INC-018 / symptoms (0.7777),#2 INC-018 / root_cause (0.7752),#3 INC-018 / solution (0.7717),18.77
+Q10,Which historical incident was fixed by addressing Redis memory usage?,True,INC-018 / solution,#1 INC-018 / solution (0.7412),#2 INC-018 / root_cause (0.7264),#3 INC-018 / notes (0.7217),23.87
+Q11,Which incident involved authentication token verification latency?,True,INC-021 / summary | INC-021 / symptoms,#1 INC-021 / symptoms (0.8421),#2 INC-021 / solution (0.8027),#3 INC-021 / summary (0.7935),19.34
+Q12,Find the historical authentication incident about slow token verification.,True,INC-021 / summary | INC-021 / symptoms,#1 INC-021 / symptoms (0.7870),#2 INC-021 / solution (0.7379),#3 INC-021 / root_cause (0.7249),22.31
+Q13,What symptoms occurred in INC-021?,True,INC-021 / symptoms,#1 INC-021 / symptoms (0.6991),#2 INC-M5-TEST / symptoms (0.6649),#3 INC-021 / solution (0.6646),20.55
+Q14,What caused INC-021?,False,INC-021 / root_cause,#1 INC-021 / solution (0.6657),#2 INC-027 / notes (0.6657),#3 INC-027 / root_cause (0.6612),22.95
+Q15,How was INC-021 resolved?,True,INC-021 / solution,#1 INC-021 / solution (0.6804),#2 INC-021 / summary (0.6666),#3 INC-021 / symptoms (0.6418),22.28
+Q16,Which incident involved PostgreSQL CPU overload during report generation?,False,INC-027 / summary | INC-027 / symptoms,#1 INC-027 / root_cause (0.8879),#2 INC-027 / notes (0.8824),#3 INC-027 / solution (0.8760),24.34
+Q17,What caused INC-027?,True,INC-027 / root_cause,#1 INC-027 / notes (0.6977),#2 INC-027 / summary (0.6907),#3 INC-027 / root_cause (0.6855),24.9
+Q18,How was INC-027 resolved?,False,INC-027 / solution,#1 INC-021 / solution (0.6619),#2 INC-021 / summary (0.6524),#3 INC-027 / notes (0.6488),23.26
+Q19,Find a historical incident involving report generation and high PostgreSQL CPU.,False,INC-027 / summary | INC-027 / symptoms,#1 INC-027 / root_cause (0.7943),#2 INC-027 / notes (0.7942),#3 INC-027 / solution (0.7795),24.26
+Q20,Which previous incident involved database overload from reporting workload?,True,INC-027 / root_cause | INC-027 / summary,#1 INC-027 / notes (0.7929),#2 INC-027 / root_cause (0.7812),#3 INC-027 / solution (0.7751),20.1
+Q21,Which incident involved notification provider rate limit failures?,False,INC-031 / summary | INC-031 / symptoms,#1 INC-031 / root_cause (0.8425),#2 INC-031 / solution (0.8079),#3 INC-031 / notes (0.8070),23.65
+Q22,What caused INC-031?,True,INC-031 / root_cause,#1 INC-031 / solution (0.7155),#2 INC-031 / summary (0.7144),#3 INC-031 / root_cause (0.6824),24.65
+Q23,How was INC-031 resolved?,True,INC-031 / solution,#1 INC-031 / solution (0.6953),#2 INC-031 / summary (0.6911),#3 INC-021 / solution (0.6856),26.85
+Q24,Find a historical failure involving external notification rate limits.,True,INC-031 / summary | INC-031 / root_cause,#1 INC-031 / symptoms (0.7636),#2 INC-031 / notes (0.7595),#3 INC-031 / root_cause (0.7481),23.58
+Q25,Which incident had notification delivery failures because a provider throttled requests?,True,INC-031 / root_cause | INC-031 / symptoms,#1 INC-031 / symptoms (0.7605),#2 INC-031 / root_cause (0.7486),#3 INC-031 / solution (0.7438),24.69
+Q26,What runbook contains database timeout checks?,False,Database Timeout Runbook / checks,#1 Database Timeout Troubleshooting Runbook / summary (0.8221),#2 Database Timeout Runbook / summary (0.8221),#3 Database Timeout Runbook / summary (0.8221),23.71
+Q27,What should I check when investigating database timeout problems?,False,Database Timeout Runbook / checks,#1 Database Timeout Troubleshooting Runbook / summary (0.7901),#2 Database Timeout Runbook / summary (0.7901),#3 Database Timeout Runbook / summary (0.7901),25.74
+Q28,Which runbook explains root causes of database timeout issues?,False,Database Timeout Runbook / root_cause,#1 Database Timeout Troubleshooting Runbook / summary (0.8239),#2 Database Timeout Runbook / summary (0.8239),#3 Database Timeout Runbook / summary (0.8239),24.97
+Q29,What verification steps are listed after resolving database timeouts?,True,Database Timeout Runbook / verification,#1 Database Timeout Troubleshooting Runbook / verification (0.7045),#2 Database Timeout Runbook / verification (0.7045),#3 Database Timeout Runbook / verification (0.7045),22.96
+Q30,How can database timeout incidents be prevented?,False,Database Timeout Runbook / prevention,#1 Database Timeout Troubleshooting Runbook / summary (0.7558),#2 Database Timeout Runbook / summary (0.7558),#3 Database Timeout Runbook / summary (0.7558),23.18
